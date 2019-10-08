@@ -1,0 +1,24 @@
+<%- include('partials/header', { seoMetaTags: settings.seoMetaTags }) %>
+
+<div class="showcase" data-next-url="<%= pagination.next ? pagination.next.path : '' %>">
+  <% pagination.files.forEach((work, index) => { %>
+    <div class="showcase__item">
+      <figure class="card">
+        <a href="/<%= work.path %>" class="card__image">
+          <img src="<%= work.coverImage %>">
+        </a>
+        <figcaption class="card__caption">
+          <h6 class="card__title">
+            <a href="/<%= work.path %>"><%= work.title %></a>
+          </h6>
+          <div class="card__description">
+            <p><%= work.excerpt %></p>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+
+  <% }) %>
+</div>
+
+<%- include('partials/footer') %>

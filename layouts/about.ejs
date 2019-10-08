@@ -1,0 +1,17 @@
+<%- include('partials/header', { seoMetaTags: seoMetaTags }) %>
+
+<article class="sheet">
+  <div class="sheet__inner">
+    <h1 class="sheet__title"><%= title %></h1>
+    <p class="sheet__lead"><%= subtitle %></p>
+    <div class="sheet__gallery">
+      <img src="<%= photo %>" />
+    </div>
+    <div class="sheet__body">
+      <%- contents %>
+    </div>
+  </div>
+</article>
+
+<%- include('partials/footer') %>
+

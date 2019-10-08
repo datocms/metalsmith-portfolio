@@ -1,0 +1,43 @@
+.slider
+  position: relative
+
+  &.is-loading
+    visibility: hidden
+
+.slider__frame
+  position: relative
+  font-size: 0
+  line-height: 0
+  overflow: hidden
+  white-space: nowrap
+
+.slider__slides
+  display: inline-block
+
+.slider__slide
+  position: relative
+  display: inline-block
+  padding-right: 5px
+
+.slider__prev, .slider__next
+  position: absolute
+  top: 50%
+  margin-top: -25px
+  display: block
+  cursor: pointer
+  border-radius: 50%
+  background-color: rgba(white, 0.4)
+  background-position: 50% 50%
+  background-size: 40%
+  background-repeat: no-repeat
+  width: 50px
+  height: 50px
+
+.slider__next
+  right: 15px
+  background-image: url('https://cdn.rawgit.com/encharm/Font-Awesome-SVG-PNG/master/black/svg/arrow-right.svg')
+
+.slider__prev
+  left: 15px
+  background-image: url('https://cdn.rawgit.com/encharm/Font-Awesome-SVG-PNG/master/black/svg/arrow-left.svg')
+

@@ -1,0 +1,52 @@
+{
+  "name": "creative-inc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build:metalsmith": "NODE_ENV=production node index.js",
+    "build:assets": "NODE_ENV=production webpack --mode production --config webpack.prod.config.js",
+    "build:datocms": "dato dump",
+    "build": "npm run build:datocms && npm run build:metalsmith && npm run build:assets",
+    "start:assets": "NODE_ENV=development webpack-dev-server --open --content-base build/ --config webpack.dev.config.js",
+    "start:metalsmith": "NODE_ENV=development node index.js",
+    "start:datocms": "dato dump --watch",
+    "start": "dato check && concurrently -p \"[{name}]\" -c \"blue,red,yellow\" -k -n metalsmith,webpack,datocms \"npm run start:metalsmith\" \"npm run start:assets\" \"npm run start:datocms\""
+  },
+  "dependencies": {
+    "imagesloaded": "^4.1.4",
+    "lory.js": "^2.5.3",
+    "masonry-layout": "^4.2.2",
+    "scroll-lazy": "^1.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^5.0.0",
+    "css-loader": "^3.2.0",
+    "datocms-client": "^3.0.4",
+    "html-tag": "^2.0.0",
+    "import-glob-loader": "^1.1.0",
+    "jstransformer-ejs": "^0.2.0",
+    "marked": "^0.7.0",
+    "metalsmith": "^2.3.0",
+    "metalsmith-collection-metadata": "^0.1.0",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-html-minifier": "^4.0.0",
+    "metalsmith-if": "^0.1.1",
+    "metalsmith-layouts": "^2.3.1",
+    "metalsmith-markdown": "^1.2.0",
+    "metalsmith-metadata": "^0.0.4",
+    "metalsmith-pagination": "^1.4.1",
+    "metalsmith-path": "^0.3.1",
+    "metalsmith-watch": "^1.0.3",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  }
+}
